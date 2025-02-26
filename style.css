@@ -1,0 +1,19 @@
+body {
+    font-size: 32px;
+}
+
+#main_con {
+    width: 90%;
+    margin: 0 auto;
+    background-color: bisque;
+}
+
+header {
+    text-align: right;
+}
+.KeyV00 {
+    width: 100%;
+}
+p {
+    text-align: justify;
+}
