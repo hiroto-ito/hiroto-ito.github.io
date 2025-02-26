@@ -14,6 +14,28 @@ header {
 .KeyV00 {
     width: 100%;
 }
+h2 {
+    text-align: center;
+}
 p {
     text-align: justify;
+}
+
+.fotter-wrap {
+    background-color: aqua;
+}
+.f-sec00 {
+    display: flex;
+    justify-content: space-between;
+}
+.f-sec00 p {
+    color: brown;
+    font-size: 72px;
+}
+.fotter_logo {
+    width: 90px;
+    height: 90px;
+}
+.fotter-copyright {
+    font-size: 16px;
 }
