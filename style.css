@@ -1,10 +1,12 @@
 body {
-    font-size: 32px;
+    font-size: 16px;
 }
 p {
-    font-size: 1.5em;
     font-family: "Kaisei Opti", serif;
     /* font-family: "Zen Kaku Gothic New", sans-serif; */
+}
+a {
+    text-decoration: none;
 }
 
 /* ヘッダー */
@@ -12,7 +14,7 @@ p {
     width: 100%;
     position: fixed;
     font-size: 1.8em;
-    height: 7rem;
+    height: 5rem;
     padding-top: 21px; /* 手動… */
     padding-left: 2.5rem; /* 手動… */
     background: rgba(255, 255, 255, 0.8); /* debug */    
@@ -20,7 +22,6 @@ p {
 .logo {
     font-family: "Great Vibes", serif;
     font-weight: 600;
-    text-decoration: none;
     color: black;
     
 }
@@ -43,23 +44,44 @@ p {
 #main_con {
     width: 90%;
     margin: 0 auto;
-    background-color: bisque;
-    padding-top: 7rem;/* same as header height */
+    padding-top: 5rem;/* same as header height */
 }
 h2 {
     text-align: center;
-    margin: 7rem 0 1rem 0;
+    margin: 5rem 0 1rem 0;
     font-family: "Zen Kaku Gothic New", sans-serif;
 }
 .KeyV00 {
     width: 100%;
 }
 
+/* ニュース */
+.list_news a {
+    padding: 0 15px;
+}
+.date {
+    margin-bottom: 10px;
+}
+
+/* ギャラリー */
+.slideshow img {
+    width: 100%;
+    height: auto;
+    animation: zoooom 30s linear forwards;
+}
+.slideshow {
+    overflow: hidden;
+}
+@keyframes zoooom {
+    100% { transform: scale(1.2)}
+}
+
+
 /* フッター */
 .fotter-wrap {
-    background-color: aqua;
     text-align: center;
     margin-top: 7rem;
+    padding: 15px 15px;
 }
 .f-sec00 {
     display: flex;
