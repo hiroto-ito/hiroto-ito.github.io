@@ -67,12 +67,14 @@ h2 {
 .slideshow img {
     width: 100%;
     height: auto;
-    animation: zoooom 30s linear forwards;
+    /* 30秒かけて1.2倍、30回繰り返し(実質無限) */
+    animation: zoooom 30s linear 30;
 }
 .slideshow {
     overflow: hidden;
 }
 @keyframes zoooom {
+    0% { transform: scale(1.0)}
     100% { transform: scale(1.2)}
 }
 
@@ -86,13 +88,14 @@ h2 {
 .f-sec00 {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1rem;
 }
 .f-sec00 p {
-    font-size: 72px;
+    font-size: 3rem;
 }
 .fotter_logo {
-    width: 90px;
-    height: 90px;
+    width: 60px;
+    height: 60px;
 }
 .fotter-copyright {
     font-size: 16px;
