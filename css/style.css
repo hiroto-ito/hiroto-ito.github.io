@@ -1,22 +1,38 @@
+:root {
+    --header-height: 200px
+}
+
 .Header--top {
     /* debug */
-    background-color: aqua;
+    /* background-color: aqua; */
+    position: fixed;
+    background: rgba(255, 255, 255, 0.6);
+    top: 0;
+    height: var(--header-height);
+    width: 100%;
     img {
         margin: auto;
         height: 155px;
+    }
+    #header-nav{
+        margin-top: 15px;
     }
     #menu-main {
         display: flex;
         justify-content: center;
         li {
-            padding: 0 8px;
+            padding: 0 18px;
         }
+    }
+    a {
+        text-decoration: none;
     }
 }
 
 #main-img {
     /* debug */
     background-color: darkolivegreen;
+    margin-top: var(--header-height);
 }
 .headimg {
     height: 500px;
