@@ -3,9 +3,27 @@
     --section-mtop: 155px;
 }
 
+/* font用、スクロールフェードイン用 */
+body {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    h2, nav {
+        font-family: "Roboto", sans-serif;
+    }
+    section {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 1s cubic-bezier(.175,.885,1,1);
+    }
+    .sections-scrolled {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
 /* ヘッダー初期 */
 .Header--top {
     position: fixed;
+    z-index: 1;
     background: rgba(255, 255, 255, 0.6);
     top: 0;
     height: var(--header-height);
@@ -94,11 +112,11 @@
         margin-top: var(--section-mtop);
         display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: 0 17px;
         grid-template-rows: 50px auto 90px;
         .sec_img {
             grid-row: 2/4;
             grid-column: 2;
-            justify-self: center;
         }
         .sec_h {
             grid-column: 1;
@@ -107,8 +125,8 @@
         .sec_p {
             grid-column: 1;
             grid-row: 2;
-            justify-self: center;
             align-self: center;
+            padding-left: 45px;
         }
         .sec_more {
             grid-column: 1;
@@ -148,11 +166,9 @@
         }
         .sts_i1 {
             justify-self: end;
-            margin-right: 10px;
         }
         .sts_i2 {
             justify-self: start;
-            margin-left: 10px;
         }
     }
     /* MORE btn */
