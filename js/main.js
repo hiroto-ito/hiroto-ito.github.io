@@ -4,6 +4,16 @@ window.addEventListener("scroll", () => {
     header.classList.toggle("Header-scrolled", window.scrollY > 200);
     //window.scrollY
 });
+//headerレスポンシブ
+const header_menu_btn = document.getElementById("header-nav-toggle");
+const header_inn = document.getElementById("header-nav");
+const header_ul = document.getElementById("menu-main");
+header_menu_btn.addEventListener("click", () => {
+    header_menu_btn.classList.toggle("h-r-activer");
+    // header_inn.style.display = "block";
+    header_inn.classList.toggle("h-r-active");
+    header_ul.classList.toggle("h-ul-active");
+});
 //sections スクロールフェードイン
 window.addEventListener("scroll", () => {
     const scroll = window.scrollY;
@@ -12,12 +22,8 @@ window.addEventListener("scroll", () => {
     
     sections.forEach( (section) => {
         const distanceToBox = section.offsetTop;
-        // 下記条件が成り立つときだけboxにis-activeクラスを付与する
-        console.log(section);
-        console.log(scroll);
-        console.log(windowHeight);
-        console.log(distanceToBox);
-        if(scroll + windowHeight > distanceToBox) {
+        const distanceToBox_apear = distanceToBox + 100;
+        if(scroll + windowHeight > distanceToBox_apear) {
             section.classList.add('sections-scrolled');
         }
     });

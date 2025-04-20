@@ -7,8 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
+    <!-- <meta name="color-scheme" content="light"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    <div id="wrapper">
     <header class="Header Header--top">
         <div id="he-imgbox">
             <a href="https://www.ceu0116.com/">
@@ -16,22 +19,22 @@
             </a>
         </div>
         <!-- nav -->
-        <nav id="header-nav" class="header-nav"><ul id="menu-main" class="menu">
+        <nav id="header-nav" class="header-nav"><ul id="menu-main" class="h-ul">
             <li><a href="/">TOP</a></li>
             <li><a href="/">ABOUT</a></li>
             <li><a href="/">BRIDAL</a></li>
             <li><a href="/">ACCESSORY</a></li>
             <li><a href="/">SALON</a></li>
-            <li><a href="/">SET SALON</a></li>
+            <li><a href="/">SETSALON</a></li>
             <li><a href="/">STAFFRECRUIT</a></li>
             <li><a href="/">CONTACT</a></li>
         </ul></nav>
+        <!-- nav responsive -->
+        <a href="#0" id="header-nav-toggle" class="header-nav-toggle">Menu<span></span></a>
     </header>
-    <div id="main-img">
-        <!-- ヘッド画像 -->
-        <div class="headimg">
-            <img src="./img/head01.jpg">
-        </div>
+    <!-- ヘッド画像 -->
+    <div class="headimg">
+        <img src="./img/head01.jpg">
     </div>
     <div id="main-content">
 
@@ -103,7 +106,7 @@
             <span class="sec_img imgbox">
                 <img id="img_setsalon" src="./img/sec03.jpg">
             </span>
-            <h2 class="sec_h">セットサロン</h2>
+            <h2 class="sec_h">SETSALON</h2>
             <p class="sec_p">
                 プロによるヘアメイクセットをお手頃価格で。<br>
                 <br>
@@ -138,7 +141,7 @@
             <span class="sec_img imgbox">
                 <img src="./img/sec02.jpg">
             </span>
-            <h2 class="sec_h">アクセサリー</h2>
+            <h2 class="sec_h">ACCESSORY</h2>
             <p class="sec_p">
                 ヘアメイクアーティストと職人が手掛ける、<br>
                 個性的で美しさに拘ったアクセサリーブランド<br>
@@ -229,7 +232,7 @@
         </section>
 </div> <!-- main content -->
 <footer>
-<div id="footer-mainbox">
+<div id="footer-mainbox" class="footer-mainbox">
     <!-- left -->
     <span id="footer-logo"><img src="./img/LOGO.png"></span>
     <!-- nagoya -->
@@ -277,6 +280,6 @@
 </div>
     <div id="footer-copy"><p>©CEU Inc. 2020</p></div>
 </footer>
-
-<script src="js/main.js"></script>
+</div>
+    <script src="js/main.js"></script>
 </body>

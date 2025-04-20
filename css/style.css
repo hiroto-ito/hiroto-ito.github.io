@@ -1,6 +1,9 @@
 :root {
     --header-height: 200px;
+    --header-height-scrolled: 80px;
     --section-mtop: 155px;
+    /* ダークモード無効 */
+    color-scheme: light;
 }
 
 /* font用、スクロールフェードイン用 */
@@ -19,6 +22,9 @@ body {
         transform: translateX(0px);
     }
 }
+/* #wrapper {
+    width: 100vw;
+} */
 
 /* ヘッダー初期 */
 .Header--top {
@@ -27,7 +33,7 @@ body {
     background: rgba(255, 255, 255, 0.6);
     top: 0;
     height: var(--header-height);
-    width: 100%;
+    width: 100vw;
     #he-imgbox {
         height: 155px;
     }
@@ -35,52 +41,216 @@ body {
         margin: auto;
         height: 100%;
     }
-    #header-nav{
+    .header-nav{
         margin-top: 15px;
     }
-    #menu-main {
+    .h-ul {
         display: flex;
         justify-content: center;
-        li {
-            padding: 0 18px;
-        }
+        gap: 20px;
     }
     a {
         text-decoration: none;
     }
+    #header-nav-toggle {
+        /* Menuの文字を隠して判定物扱い */
+        color: transparent;
+    }
 }
+/* 仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮 */
+@media screen and (max-width: 455px) {
+    .Header--top {
+        height: 80px;
+        padding: 12px 60px;
+        display: flex;
+        justify-content: space-between;
+        #he-imgbox {
+            height: 50px;/* 仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮 */
+        }
+        .header-nav {
+            align-self: center;
+            margin-top: 0;
+        }
+        .header-nav-toggle {
+            display: none;
+        }
+        /* スマホ ハンバーガーメニュー */
+        @media screen and (max-width: 955px) {
+            /* background: rgba(122, 235, 255, 0.6); */
+            .header-nav {
+                position: absolute;
+                top: var(--header-height-scrolled);
+                left: 0px;
+                /* anime */
+                transform: translateX(-150px);
+                opacity: 0;
+                transition: transform .25s cubic-bezier(.104,.204,.492,1);;
+            }
+            .h-ul {
+                display: block;
+                padding: 0 50px;
+                li {
+                    height: 50px;
+                    font-size: 1.5rem;
+                    a {
+                        display: flex;
+                        align-items: center;
+                        padding: 5px 0;
+                    }
+                }
+
+            }
+            /* クリックしたら展開される */
+            .h-r-active {
+                /* anime */
+                transform: translate(0);
+                opacity: 1;
+                height: 100dvh;
+                background: rgba(255, 255, 255, 0.6);
+                
+                width: 100%;
+                display: block;
+            }
+            .header-nav-toggle {
+                line-height: 80px;
+                width: 24px;
+                display: block;
+                /* バーガーアニメ */
+                span, span::before, span::after {
+                    content: "";
+                    background: #000000;
+                    display: inline-block;
+                    position: absolute;
+                    height: 3px;
+                    width: 24px;
+                    top: 50%;
+                    transition: transform 0.2s;
+                    transform-origin: 0% 50%;
+                }
+                span::before {
+                    top: -8px;
+                }
+                span::after {
+                    top: 8px;
+                }
+            }
+            /* バーガーアニメ */
+            .h-r-activer {
+                span {
+                    background: transparent;
+                }
+                span::before{
+                    transform: translateX(4px) translateY(-1px) rotate(45deg);
+                }
+                span::after{
+                    transform: translateX(4px) translateY(0px) rotate(-45deg);;
+                }
+            }
+        }
+    }
+}
+
 /* ヘッダースクロール */
 /* 変化後 */
 .Header-scrolled {
     transition: 0.25s;
-    height: 80px;
+    height: var(--header-height-scrolled);
     padding: 12px 60px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     #he-imgbox {
         height: 50px;
     }
-    /* img {
-        margin: auto;
-        height: 100%;
-    } */
-    #header-nav {
+    .header-nav {
         align-self: center;
         margin-top: 0;
-        margin-left: 20px;
+    }
+    .header-nav-toggle {
+        display: none;
+    }
+    /* スマホ ハンバーガーメニュー */
+    @media screen and (max-width: 955px) {
+        /* background: rgba(122, 235, 255, 0.6); */
+        .header-nav {
+            position: absolute;
+            top: var(--header-height-scrolled);
+            left: 0px;
+            /* anime */
+            transform: translateX(-150px);
+            opacity: 0;
+            transition: transform .25s cubic-bezier(.104,.204,.492,1);;
+        }
+        .h-ul {
+            display: block;
+            padding: 0 50px;
+            li {
+                height: 50px;
+                font-size: 1.5rem;
+                a {
+                    display: flex;
+                    align-items: center;
+                    padding: 5px 0;
+                }
+            }
+
+        }
+        /* クリックしたら展開される */
+        .h-r-active {
+            /* anime */
+            transform: translate(0);
+            opacity: 1;
+            height: 100dvh;
+            background: rgba(255, 255, 255, 0.6);
+            
+            width: 100%;
+            display: block;
+        }
+        .header-nav-toggle {
+            line-height: 80px;
+            width: 24px;
+            display: block;
+            /* バーガーアニメ */
+            span, span::before, span::after {
+                content: "";
+                background: #000000;
+                display: inline-block;
+                position: absolute;
+                height: 3px;
+                width: 24px;
+                top: 50%;
+                transition: transform 0.2s;
+                transform-origin: 0% 50%;
+            }
+            span::before {
+                top: -8px;
+            }
+            span::after {
+                top: 8px;
+            }
+        }
+        /* バーガーアニメ */
+        .h-r-activer {
+            span {
+                background: transparent;
+            }
+            span::before{
+                transform: translateX(4px) translateY(-1px) rotate(45deg);
+            }
+            span::after{
+                transform: translateX(4px) translateY(0px) rotate(-45deg);;
+            }
+        }
     }
 }
 
-#main-img {
-    /* debug */
-    background-color: darkolivegreen;
-    margin-top: var(--header-height);
-}
+
 .headimg {
+    margin-top: var(--header-height);
+    width: 100%;
     height: 500px;
     img {
-        width: 100%;
         height: 100%;
+        width: 100%;
         object-fit: cover;
     }
 }
@@ -98,7 +268,7 @@ body {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 12px;
+            /* border-radius: 12px; */
         }
         #img_setsalon {
             object-position: 0 14%;
@@ -141,7 +311,6 @@ body {
         .sec_img {
             grid-row: 2/-1;
             grid-column: 2;
-            justify-self: center;
             align-self: center;
         }
         .br-sec_p2 {
@@ -271,7 +440,7 @@ footer {
     }
     a {
         display: inline-block;
-        width: 170px;
+        min-width: 120px;
         height: 45px;
         color: #141414;
         text-decoration: none;
@@ -279,13 +448,15 @@ footer {
         text-align: center;
         align-content: center;
     }
-    #footer-mainbox {
+    .footer-mainbox {
         display: grid;
         max-width: 1000px;
+        width: 85%;
+        margin: 0 auto;
         height: 300px;
-        grid-template-columns: 250px 200px 200px auto;
+        grid-template-columns: minmax(100px, 250px) minmax(200px, 250px) minmax(200px, 250px) 170px;
         grid-template-rows: 1fr 2fr 2fr 1fr 2fr;
-        margin: auto;
+        gap: 0 5px;
         
         #footer-logo {
             grid-column: 1;
@@ -326,5 +497,49 @@ footer {
     #footer-copy {
         justify-self: center;
         margin-top: 40px;
+    }
+}
+@media (max-width: calc( (100px + 5px + 200px + 5px + 200px + 5px + 170px) / 0.85)) {
+    #footer-mainbox {
+        grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr);
+        height: 600px;
+        grid-template-rows: 100px 7fr 1fr 1.2fr 1.2fr;
+        gap: 10px 5px;
+        #fo-inquiry-tit1, #fo-inquiry-bt1, #fo-inquiry-bt2 {
+            grid-column: 1;
+        }
+        #fo-inquiry-tit2, #fo-inquiry-bt3 {
+            grid-column: 2;
+        }
+        #footer-logo {
+            grid-row: 1;
+            img {
+                height: 100%;
+                width: auto;
+            }
+        }
+        #fo-address-nagoya {
+            grid-column: 1;
+            grid-row: 2;
+        }
+        #fo-address-tokyo {
+            grid-column: 2;
+            grid-row: 2;
+        }
+        #fo-inquiry-tit1 {
+            grid-row: 3;
+        }
+        #fo-inquiry-bt1 {
+            grid-row: 4;
+        }
+        #fo-inquiry-bt2 {
+            grid-row: 5;
+        }
+        #fo-inquiry-tit2 {
+            grid-row: 3;
+        }
+        #fo-inquiry-bt3 {
+            grid-row: 4;
+        }
     }
 }
