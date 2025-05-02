@@ -14,6 +14,12 @@ header_menu_btn.addEventListener("click", () => {
     header_inn.classList.toggle("h-r-active");
     header_ul.classList.toggle("h-ul-active");
 });
+//headerサブメニュー
+const header_submenu_btn = document.querySelector(".sub-menu-btn")
+const header_submenu = document.querySelector(".sub-menu")
+header_submenu_btn.addEventListener("click", () => {
+    header_submenu.classList.toggle("sub-menu-active");
+});
 //sections スクロールフェードイン
 window.addEventListener("scroll", () => {
     const scroll = window.scrollY;

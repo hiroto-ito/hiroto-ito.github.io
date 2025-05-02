@@ -1,7 +1,8 @@
 :root {
     --header-height: 200px;
+    --header-img-height: 200px;
     --header-height-scrolled: 80px;
-    --section-mtop: 155px;
+    --section-mtop: 100px;
     /* ダークモード無効 */
     color-scheme: light;
 }
@@ -9,37 +10,46 @@
 /* font用、スクロールフェードイン用 */
 body {
     font-family: "Zen Kaku Gothic New", sans-serif;
+    background-color: rgb(255,253,250);
     h2, nav {
         font-family: "Roboto", sans-serif;
     }
     section {
         opacity: 0;
-        transform: translateX(50px);
+        transform: translateY(50px);
         transition: all 1s cubic-bezier(.175,.885,1,1);
     }
     .sections-scrolled {
         opacity: 1;
-        transform: translateX(0px);
+        transform: translate(0px);
     }
 }
-/* #wrapper {
-    width: 100vw;
-} */
+#wrapper {
+    min-height: 100vh;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~ヘッダー~~~~~~~~~~~~~~~~~~~~ */
 
 /* ヘッダー初期 */
 .Header--top {
+    transition: all 0.25s;
     position: fixed;
     z-index: 1;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 253, 250, 0.6);
     top: 0;
     height: var(--header-height);
-    width: 100vw;
+    width: 100%;
     #he-imgbox {
         height: 155px;
-    }
-    img {
-        margin: auto;
-        height: 100%;
+        display: flex;
+        justify-content: center;
+        a {
+            img {
+                margin: auto;
+                height: 100%;
+            }
+        }
     }
     .header-nav{
         margin-top: 15px;
@@ -48,6 +58,10 @@ body {
         display: flex;
         justify-content: center;
         gap: 20px;
+        /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+        .sub-menu {
+            display: none;
+        }
     }
     a {
         text-decoration: none;
@@ -57,103 +71,11 @@ body {
         color: transparent;
     }
 }
-/* 仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮 */
-@media screen and (max-width: 455px) {
-    .Header--top {
-        height: 80px;
-        padding: 12px 60px;
-        display: flex;
-        justify-content: space-between;
-        #he-imgbox {
-            height: 50px;/* 仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮仮 */
-        }
-        .header-nav {
-            align-self: center;
-            margin-top: 0;
-        }
-        .header-nav-toggle {
-            display: none;
-        }
-        /* スマホ ハンバーガーメニュー */
-        @media screen and (max-width: 955px) {
-            /* background: rgba(122, 235, 255, 0.6); */
-            .header-nav {
-                position: absolute;
-                top: var(--header-height-scrolled);
-                left: 0px;
-                /* anime */
-                transform: translateX(-150px);
-                opacity: 0;
-                transition: transform .25s cubic-bezier(.104,.204,.492,1);;
-            }
-            .h-ul {
-                display: block;
-                padding: 0 50px;
-                li {
-                    height: 50px;
-                    font-size: 1.5rem;
-                    a {
-                        display: flex;
-                        align-items: center;
-                        padding: 5px 0;
-                    }
-                }
-
-            }
-            /* クリックしたら展開される */
-            .h-r-active {
-                /* anime */
-                transform: translate(0);
-                opacity: 1;
-                height: 100dvh;
-                background: rgba(255, 255, 255, 0.6);
-                
-                width: 100%;
-                display: block;
-            }
-            .header-nav-toggle {
-                line-height: 80px;
-                width: 24px;
-                display: block;
-                /* バーガーアニメ */
-                span, span::before, span::after {
-                    content: "";
-                    background: #000000;
-                    display: inline-block;
-                    position: absolute;
-                    height: 3px;
-                    width: 24px;
-                    top: 50%;
-                    transition: transform 0.2s;
-                    transform-origin: 0% 50%;
-                }
-                span::before {
-                    top: -8px;
-                }
-                span::after {
-                    top: 8px;
-                }
-            }
-            /* バーガーアニメ */
-            .h-r-activer {
-                span {
-                    background: transparent;
-                }
-                span::before{
-                    transform: translateX(4px) translateY(-1px) rotate(45deg);
-                }
-                span::after{
-                    transform: translateX(4px) translateY(0px) rotate(-45deg);;
-                }
-            }
-        }
-    }
-}
 
 /* ヘッダースクロール */
 /* 変化後 */
+/* ！記述位置 */
 .Header-scrolled {
-    transition: 0.25s;
     height: var(--header-height-scrolled);
     padding: 12px 60px;
     display: flex;
@@ -164,49 +86,92 @@ body {
     .header-nav {
         align-self: center;
         margin-top: 0;
+        top: var(--header-height-scrolled) !important;
+        /* display: none; */
     }
     .header-nav-toggle {
         display: none;
     }
-    /* スマホ ハンバーガーメニュー */
-    @media screen and (max-width: 955px) {
-        /* background: rgba(122, 235, 255, 0.6); */
+}
+/* 955以下 バーガーメニュー出現 */
+@media screen and (max-width: 955px) {
+    .Header--top {
+        padding: 12px 20px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;;
+        #he-imgbox {
+            /* grid中央寄せ */
+            grid-column: 2;
+        }
         .header-nav {
             position: absolute;
-            top: var(--header-height-scrolled);
+            top: var(--header-height);
             left: 0px;
-            /* anime */
-            transform: translateX(-150px);
+            margin-top: 0px; /* 打ち消し */
+            /* anime .h-r-active対応 */
             opacity: 0;
-            transition: transform .25s cubic-bezier(.104,.204,.492,1);;
+            transform: translateX(-150px);
+            display: none; 
+            transition: opacity .45s cubic-bezier(.104,.204,.492,1), transform .25s cubic-bezier(.104,.204,.492,1), display .25s cubic-bezier(.104,.204,.492,1) allow-discrete;
         }
         .h-ul {
             display: block;
             padding: 0 50px;
             li {
-                height: 50px;
                 font-size: 1.5rem;
+                display: flex;
+                flex-wrap: wrap;
                 a {
                     display: flex;
                     align-items: center;
                     padding: 5px 0;
+                    /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+                    width: 95%;
+                }
+                .sub-menu {
+                    display: none;
+                    width: 100%;
+                    padding-left: 10px;
+                    opacity: 0;
+                    transform: translateX(-150px);
+                    transition: opacity .45s cubic-bezier(.104,.204,.492,1), transform .25s cubic-bezier(.104,.204,.492,1), display .25s cubic-bezier(.104,.204,.492,1) allow-discrete;
+                }
+                .sub-menu-active {
+                    display: block;
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+                @starting-style {
+                    .sub-menu-active {
+                        transform: translateX(-150px);
+                        opacity: 0;
+                    }
                 }
             }
-
         }
         /* クリックしたら展開される */
         .h-r-active {
-            /* anime */
-            transform: translate(0);
-            opacity: 1;
             height: 100dvh;
             background: rgba(255, 255, 255, 0.6);
-            
             width: 100%;
+            /* anime .header-nav対応 */
+            opacity: 1;
+            transform: translateX(0);
             display: block;
         }
+        /* anime .header-nav→.h-r-active */
+        @starting-style {
+            .h-r-active {
+                transform: translateX(-150px);
+                opacity: 0;
+            }
+        }
+        
         .header-nav-toggle {
-            line-height: 80px;
+            /* grid右寄せ */
+            grid-column: 3;
+            justify-self: end;
+            line-height: 65px;
             width: 24px;
             display: block;
             /* バーガーアニメ */
@@ -228,7 +193,7 @@ body {
                 top: 8px;
             }
         }
-        /* バーガーアニメ */
+        /* 開閉アニメ */
         .h-r-activer {
             span {
                 background: transparent;
@@ -244,49 +209,50 @@ body {
 }
 
 
+/* ~~~~~~~~~~~~~~~~~~~~内容部~~~~~~~~~~~~~~~~~~~~ */
+
+
+/* メイン画像 */
 .headimg {
     margin-top: var(--header-height);
     width: 100%;
-    height: 500px;
+    height: calc(100vh - var(--header-height));
     img {
-        height: 100%;
+        height: 80%;
         width: 100%;
         object-fit: cover;
     }
 }
 
-@layer normalsec, bridalsec, setsec;
+@layer normalsec, bridalsec, setsec, responsiv;
 #main-content {
     max-width: 960px;
+    width: 90%;
     margin: auto;
     padding-bottom: 150px;
-    width: 85%;
-    .imgbox {
-        width: 390px;
-        height: 260px;
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* border-radius: 12px; */
-        }
-        #img_setsalon {
-            object-position: 0 14%;
-        }
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        aspect-ratio: 360 / 240;
+        /* border-radius: 12px; */
+    }
+    #img_setsalon {
+        object-position: 0 14%;
     }
 
     @layer normalsec;
     .sections {
-        /* debug */
-        /* background-color: coral; */
         margin-top: var(--section-mtop);
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 0 17px;
         grid-template-rows: 50px auto 90px;
-        .sec_img {
+        .img_container {
             grid-row: 2/4;
             grid-column: 2;
+            width: 80%;
+            overflow: hidden;
         }
         .sec_h {
             grid-column: 1;
@@ -306,9 +272,9 @@ body {
         }
     }
     @layer bridalsec;
-    #Bridal {
+    .Bridal {
         grid-template-rows: 50px auto 90px auto 90px auto 90px;
-        .sec_img {
+        .img_container {
             grid-row: 2/-1;
             grid-column: 2;
             align-self: center;
@@ -327,24 +293,27 @@ body {
         }
     }
     @layer setsec;
-    #setsalon {
+    .setsalon {
         grid-template-rows: 50px auto 40px 290px;
         .setsalon_imgs {
             grid-row: 4;
             text-align: center;
         }
         .sts_i1 {
-            justify-self: end;
+            justify-self: center;
         }
         .sts_i2 {
             justify-self: start;
+        }
+        .imgbox {
+            width: 80%;
         }
     }
     /* MORE btn */
     .more-btn {
         height: 50px;
         width: 105px;
-        background-color: black;
+        background-color: #bb9696;
         align-self: end;
         text-align: center;
         align-content: center;
@@ -382,7 +351,7 @@ body {
     /* NEWS */
     #news {
         margin-top: var(--section-mtop);
-    
+        
         h2 {
             height: 50px;
         }
@@ -392,19 +361,21 @@ body {
         ul {
             display: flex;
             justify-content: center;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
         }
         li {
+            scroll-snap-align: start;
             width: 170px;
             margin: 0 10px;
         }
         .newsimgbox {
-            display: block;
-            height: 260px;
-            align-content: center;
+            overflow: hidden;
             img {
-                object-fit: cover;
-                height: 100%;
                 width: 100%;
+                height: auto;
+                object-fit: cover;
+                aspect-ratio: 170 / 260;
             }
         }
         .date {
@@ -424,6 +395,69 @@ body {
         .sec_more {
             display: block;
             margin: 30px auto 0;
+        }
+    }
+
+    @media screen and (max-width: 481px) {
+        .sections {
+            grid-template-columns: auto;
+            grid-template-rows: auto auto auto auto;
+            gap: 17px 0;
+            .img_container {
+                grid-row: 2;
+                grid-column: 1; /* 打ち消し */ 
+                justify-self: center;
+            }
+            .sec_p {
+                grid-row: 3;
+                padding: 0; /* 打ち消し */ 
+                width: 80%;
+                justify-self: center; /* 打ち消し */ 
+            }
+            .sec_more {
+                grid-row: 4;
+            }
+        }
+        .Bridal {
+            grid-template-rows: auto auto auto auto auto auto auto;
+            .br-sec_p1 {
+                grid-row: 3;
+            }
+            .br-sec_btn1 {
+                grid-row: 4;
+            }
+            .br-sec_p2 {
+                grid-row: 5;
+            }
+            .br-sec_btn2 {
+                grid-row: 6;
+            }
+            .br-sec_p3 {
+                grid-row: 7;
+            }
+            .br-sec_btn3 {
+                grid-row: 8;
+            }
+        }
+        .setsalon {
+            grid-template-rows: auto auto auto auto;
+            grid-template-columns: 1fr 1fr;
+            .img_container, .sec_p {
+                grid-column: 1/-1;
+            }
+            .sts_i1, .sts_i2 {
+                justify-self: center;
+            }
+        }
+        #news {
+            ul {
+                justify-content: start;
+                li {
+                    .newsimgbox {
+                        width: 170px;
+                    }
+                }
+            }
         }
     }
 }

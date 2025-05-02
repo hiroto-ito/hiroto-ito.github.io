@@ -22,10 +22,21 @@
         <nav id="header-nav" class="header-nav"><ul id="menu-main" class="h-ul">
             <li><a href="/">TOP</a></li>
             <li><a href="/">ABOUT</a></li>
-            <li><a href="/">BRIDAL</a></li>
+            <li><a href="/">BRIDAL</a><button class="sub-menu-btn">↓</button>
+                <ul class="sub-menu">
+                    <li><a href="/">BRIDAL HAIR MAKE</a></li>
+                    <li><a href="/">前撮り/後撮り</a></li>
+                    <li><a href="/">お客様事例</a></li>
+                </ul>
+            </li>
             <li><a href="/">ACCESSORY</a></li>
             <li><a href="/">SALON</a></li>
-            <li><a href="/">SETSALON</a></li>
+            <li><a href="/">SETSALON</a><button class="sub-menu-btn">↓</button>
+                <ul class="sub-menu">
+                    <li><a href="/">CEU - TOKYO</a></li>
+                    <li><a href="/">CEU - NAGOYA</a></li>
+                </ul>
+            </li>
             <li><a href="/">STAFFRECRUIT</a></li>
             <li><a href="/">CONTACT</a></li>
         </ul></nav>
@@ -41,9 +52,9 @@
         <!-- concept -->
         <section id="concept" class="sections sections-rest">
             <h2 class="sec_h">CONCEPT</h2>
-            <span class="sec_img imgbox">
-                <img src="./img/sec01.jpg">
-            </span>
+            <div class="img_container">
+                <img class="sec_img" src="./img/sec01.jpg">
+            </div>
             <p class="sec_p">
                 FOR THE MOST IMPORTANT DAY<br>
                 AND SPECIAL DAY IN YOUR LIFE<br>
@@ -65,14 +76,14 @@
         </section>
 
         <!-- ブライダル -->
-        <section id="Bridal" class="sections sections-rest">
-            <span class="sec_img imgbox">
-                <img src="./img/sec05.jpg">
-            </span>
+        <section id="Bridal" class="Bridal sections sections-rest">
+            <div class="img_container">
+                <img class="sec_img" src="./img/sec05.jpg">
+            </div>
             <!-- 1 -->
             <h2 class="sec_h">Bridal</h2>
             <p class="sec_p br-sec_p1">
-                ブライダルヘアメイク<br>
+                <strong>ブライダルヘアメイク</strong><br>
                 『優しく、丁寧に、想いを持って』をテーマに<br>
                 お二人の一日を担当致します。
             </p>
@@ -81,7 +92,7 @@
             </span>
             <!-- 2 -->
             <p class="sec_p br-sec_p2">
-                前撮り/後撮り<br>
+                <strong>前撮り/後撮り</strong><br>
                 ただデザイン性などだけを拘るのではない<br>
                 その先10年後や、どの世代から見ても<br>
                 美しいと思っていただける一生の思い出を
@@ -91,7 +102,7 @@
             </span>
             <!-- 3 -->
             <p class="sec_p br-sec_p3">
-                お客様事例<br>
+                <strong>お客様事例</strong><br>
                 十人十色。<br>
                 一件一件大切にしてきた<br>
                 私たちの花嫁の数々はこちら･･･
@@ -102,10 +113,10 @@
         </section>
 
         <!-- セットサロン -->
-        <section id="setsalon" class="sections sections-rest">
-            <span class="sec_img imgbox">
-                <img id="img_setsalon" src="./img/sec03.jpg">
-            </span>
+        <section id="setsalon" class="setsalon sections sections-rest">
+            <div class="img_container">
+                <img id="img_setsalon" class="sec_img" src="./img/sec03.jpg">
+            </div>
             <h2 class="sec_h">SETSALON</h2>
             <p class="sec_p">
                 プロによるヘアメイクセットをお手頃価格で。<br>
@@ -138,9 +149,9 @@
 
         <!-- アクセサリー -->
         <section id="accessory" class="sections sections-rest">
-            <span class="sec_img imgbox">
-                <img src="./img/sec02.jpg">
-            </span>
+            <div class="img_container">
+                <img class="sec_img" src="./img/sec02.jpg">
+            </div>
             <h2 class="sec_h">ACCESSORY</h2>
             <p class="sec_p">
                 ヘアメイクアーティストと職人が手掛ける、<br>
@@ -154,9 +165,9 @@
 
         <!-- PRODUCT -->
         <section id="product" class="sections sections-rest">
-            <span class="sec_img imgbox">
-                <img src="./img/sec06.jpg">
-            </span>
+            <div class="img_container">
+                <img class="sec_img" src="./img/sec06.jpg">
+            </div>
             <h2 class="sec_h">PRODUCT</h2>
             <p class="sec_p">
                 スポンジ・スプレー・アクセサリー購入は<a href="./">こちら</a>
@@ -168,9 +179,9 @@
 
         <!-- STAFF -->
         <section id="staff" class="sections sections-rest">
-            <span class="sec_img imgbox">
-                <img src="./img/sec07.jpg">
-            </span>
+            <div class="img_container">
+                <img class="sec_img" src="./img/sec07.jpg">
+            </div>
             <h2 class="sec_h">STAFF</h2>
             <p class="sec_p">
                 全国から指名のみで担当している<br>
@@ -190,36 +201,36 @@
                 <ul class="list--news">
                     <li class="inview view">
                         <a href="./">
-                        <span class="newsimgbox">
+                        <div class="newsimgbox">
                             <img src="./img/news01.jpg">
-                        </span>
+                        </div>
                         <p class="date">2022.06.26<span class="category">TV出演</span></p>
                         <p class="tit">『情熱大陸』</p>
                         </a>
                     </li>
                     <li class="inview view">
                         <a href="./">
-                        <span class="newsimgbox">
+                        <div class="newsimgbox">
                             <img src="./img/news02.jpg">
-                        </span>
+                        </div>
                         <p class="date">2021.02.25<span class="category">雑誌掲載</span></p>
                         <p class="tit">中広/NAGOYA FURIMO 3月号</p>
                         </a>
                     </li>
                     <li class="inview view">
                         <a href="./">
-                        <span class="newsimgbox">
+                        <div class="newsimgbox">
                             <img src="./img/news03.jpg">
-                        </span>
+                        </div>
                         <p class="date">2020.08.04<span class="category">雑誌掲載</span></p>
                         <p class="tit">HOTEL WEDDING ~2020 No.43~</p>
                         </a>
                     </li>
                     <li class="inview view">
                         <a href="./">
-                        <span class="newsimgbox">
+                        <div class="newsimgbox">
                             <img src="./img/news04.jpg">
-                        </span>
+                        </div>
                         <p class="date">2020.04.02<span class="category">TV出演</span></p>
                         <p class="tit">橋本マナミの東京はいすぺ女子図鑑</p>
                         </a>
